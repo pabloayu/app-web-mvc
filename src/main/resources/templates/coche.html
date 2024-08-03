@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Casa</title>
+</head>
+<body>
+<h1 th:text="${key}"></h1>
+<div th:each="cosas: ${key}">
+    <td th:text="${cosas.id}"></td>
+    <td th:text="${cosas.Nombre}"></td>
+</div>
+</body>
+</html>
