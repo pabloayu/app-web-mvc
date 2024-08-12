@@ -6,7 +6,7 @@ import java.io.Serial;
 import java.io.Serializable;
 @Entity
 @Table(name = "empleados")
-class Empleado implements Serializable {
+public class Empleado implements Serializable {
 
     // Atributos
     @Id

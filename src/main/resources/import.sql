@@ -1,0 +1,11 @@
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Juan', 'Perez', 'ssss@email.com', 123456789);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('María', 'González', 'maria.gonzalez@email.com', 987654321);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Carlos', 'Ramírez', 'carlos.ramirez@email.com', 234567890);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Lucía', 'Martínez', 'lucia.martinez@email.com', 876543210);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Roberto', 'Hernández', 'roberto.hernandez@email.com', 345678901);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Ana', 'López', 'ana.lopez@email.com', 765432109);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Miguel', 'Fernández', 'miguel.fernandez@email.com', 456789012);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Laura', 'Díaz', 'laura.diaz@email.com', 654321098);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Fernando', 'García', 'fernando.garcia@email.com', 567890123);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Sofía', 'Torres', 'sofia.torres@email.com', 678901234);
+Insert Into empleados (nombre, apellido, email, telefono) Values ('Patricia', 'Castro', 'patricia.castro@email.com', 543210987);

@@ -2,13 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle de Casa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        thead {
+            background-color: #007bff;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        tr:hover {
+            background-color: rgba(0, 123, 255, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        th {
+            background-color: #28a745;
+        }
+        td:first-child {
+            font-weight: bold;
+        }
+        td {
+            position: relative;
+        }
+        td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 15px;
+            font-weight: bold;
+            color: #007bff;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                margin-bottom: 15px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            td {
+                padding-left: 50%;
+                text-align: right;
+            }
+            td::before {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1 th:text="${key}"></h1>
-<div th:each="cosas: ${key}">
-    <td th:text="${cosas.id}"></td>
-    <td th:text="${cosas.Nombre}"></td>
-</div>
+<nav>
+    <a href="/trabajadores">Lista de Trabajadores</a>
+    <a href="/trabajadores/new">Crear Empleado</a>
+</nav>
+<h1>Lista de Trabajadores</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="trabajador : ${trabajadores}">
+        <td th:text="${trabajador.id}" data-label="ID"></td>
+        <td th:text="${trabajador.nombre}" data-label="Nombre"></td>
+        <td th:text="${trabajador.apellido}" data-label="Apellido"></td>
+        <td th:text="${trabajador.telefono}" data-label="Teléfono"></td>
+        <td th:text="${trabajador.email}" data-label="Email"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
