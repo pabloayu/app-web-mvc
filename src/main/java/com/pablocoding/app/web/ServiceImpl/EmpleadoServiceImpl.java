@@ -1,29 +1,52 @@
 package com.pablocoding.app.web.ServiceImpl;
 
-import com.pablocoding.app.web.entity.Empleado;
-import com.pablocoding.app.web.repository.EmpleadoRepository;
-import com.pablocoding.app.web.service.EmpleadoService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import com.pablocoding.app.web.entity.Empleado;
+import com.pablocoding.app.web.repository.EmpleadoRepository;
+import com.pablocoding.app.web.service.EmpleadoService;
+
 
 import java.util.List;
 
 @Service
-public class EmpleadoServiceImpl implements EmpleadoService {
+public class EmpleadoServiceImpl implements EmpleadoService{
+
     @Autowired
     private EmpleadoRepository empleadoRepository;
 
     @Override
-    @Transactional(readOnly = true)
-    public List<Empleado> listarEmpleados() {
-       return empleadoRepository.findAll();
+    public List<Empleado> listarEmpleados(String dato) {
+        if(dato != null) {
+            return empleadoRepository.searchData(dato);
+        }else {
+            return empleadoRepository.findAll();
+        }
+
     }
 
     @Override
     public Empleado guardarEmpleado(Empleado empleado) {
         return empleadoRepository.save(empleado);
+    }
+
+    @Override
+    public Empleado obtenerEmpleado(Long id) {
+        return empleadoRepository.findById(id).get();
+    }
+
+    @Override
+    public Empleado actualizarEmpleado(Empleado empleado) {
+        return empleadoRepository.save(empleado);
+    }
+
+    @Override
+    public void eliminarEmpleado(Long id) {
+        empleadoRepository.deleteById(id);
     }
 
 }
