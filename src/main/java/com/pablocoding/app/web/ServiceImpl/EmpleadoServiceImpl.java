@@ -1,32 +1,25 @@
 package com.pablocoding.app.web.ServiceImpl;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import com.pablocoding.app.web.entity.Empleado;
 import com.pablocoding.app.web.repository.EmpleadoRepository;
 import com.pablocoding.app.web.service.EmpleadoService;
-
-
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
-public class EmpleadoServiceImpl implements EmpleadoService{
+public class EmpleadoServiceImpl implements EmpleadoService {
 
     @Autowired
     private EmpleadoRepository empleadoRepository;
 
     @Override
     public List<Empleado> listarEmpleados(String dato) {
-        if(dato != null) {
+        if (dato != null) {
             return empleadoRepository.searchData(dato);
-        }else {
+        } else {
             return empleadoRepository.findAll();
         }
-
     }
 
     @Override
@@ -48,5 +41,4 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     public void eliminarEmpleado(Long id) {
         empleadoRepository.deleteById(id);
     }
-
 }
